@@ -9,27 +9,21 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     @Column
-    private String province;
+    private String country;
     @Column
     private String city;
     @Column
-    private String street;
-    @Column
-    private String alley;
-    @Column
-    private int plaque;
+    private String address;
     @OneToMany(mappedBy = "address")
     private List<Customer> customerList=new ArrayList<>();
 
     public Address() {
     }
 
-    public Address(String province, String city, String street, String alley, int plaque) {
-        this.province = province;
+    public Address(String country, String city, String address) {
+        this.country = country;
         this.city = city;
-        this.street = street;
-        this.alley = alley;
-        this.plaque = plaque;
+        this.address = address;
     }
 
     public int getId() {
@@ -40,12 +34,12 @@ public class Address {
         this.id = id;
     }
 
-    public String getProvince() {
-        return province;
+    public String getCountry() {
+        return country;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getCity() {
@@ -56,27 +50,19 @@ public class Address {
         this.city = city;
     }
 
-    public String getStreet() {
-        return street;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getAlley() {
-        return alley;
+    public List<Customer> getCustomerList() {
+        return customerList;
     }
 
-    public void setAlley(String alley) {
-        this.alley = alley;
-    }
-
-    public int getPlaque() {
-        return plaque;
-    }
-
-    public void setPlaque(int plaque) {
-        this.plaque = plaque;
+    public void setCustomerList(List<Customer> customerList) {
+        this.customerList = customerList;
     }
 }

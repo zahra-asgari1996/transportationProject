@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styleSheet.css">
+</head>
+
+<body>
+<form method="post" action="signUpCustomer" >
+    <div class="signupForm">
+        <label for="userName">User Name:<br></label>
+        <input type="text" id="userName" name="userName"><br>
+        <label for="name">Name:<br></label>
+        <input type="text" id="name" name="name"><br>
+        <label for="lname">Last Name:<br></label>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="email">Email:<br></label>
+        <input type="email" id="email" name="email"><br>
+        <label for="pass">Password:<br></label>
+        <input type="password" id="pass" name="pass"><br>
+        <label for="phone">Phone Number:<br></label>
+        <input type="number" id="phone" name="phone"><br>
+    </div>
+    <div class="gender">
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+    </div>
+    <div class="submit">
+        <input type="submit" id="submit" name="submit " value="Sign Up" onclick="return CheckPassword()"><br>
+    </div>
+    <div class="reset">
+        <input type="reset" id="reset" name="reset" value="Reset"><br>
+    </div>
+    <div class="signin">
+        <a href="signinCostomer.html">I have an account ! </a>
+    </div>
+</form>
+
+<script >
+    function CheckPassword()
+    {
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if(document.getElementById("pass").value.match(passw))
+        {
+            return true;
+        }else if(document.getElementById("pass").value.match(passw)===""){
+            alert('plz fill password !')
+            return false;
+        }
+        else
+        {
+            alert('Plz inter a valid password !')
+            return false;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

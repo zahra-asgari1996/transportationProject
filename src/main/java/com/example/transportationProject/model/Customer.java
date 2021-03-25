@@ -1,5 +1,7 @@
 package com.example.transportationProject.model;
 
+import com.example.transportationProject.enums.Gender;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,22 +12,27 @@ public class Customer {
     private String password;
     @Column
     private String name;
+    @Column
+    private String lastName;
     @Column(unique = true)
     private String email;
     @ManyToOne
     private Address address;
     @Column
     private long phoneNumber;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
-    public Customer(String userName, String password, String name, String email, Address address, long phoneNumber) {
+    public Customer(String userName, String password, String name, String lastName, String email,  long phoneNumber, Gender gender) {
         this.userName = userName;
         this.password = password;
         this.name = name;
+        this.lastName = lastName;
         this.email = email;
-        this.address = address;
+        //this.address = address;
         this.phoneNumber = phoneNumber;
+        this.gender = gender;
     }
-
 
     public Customer() {
     }
@@ -76,5 +83,21 @@ public class Customer {
 
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
