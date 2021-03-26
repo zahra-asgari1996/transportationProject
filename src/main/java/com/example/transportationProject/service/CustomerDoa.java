@@ -43,4 +43,12 @@ public class CustomerDoa {
 
     }
 
+    public Customer findCustomer(String userName){
+        Session session= sessionFactory.openSession();
+        Customer customer =session.get(Customer.class,userName);
+        session.close();
+        return customer;
+
+    }
+
 }

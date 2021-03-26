@@ -15,11 +15,22 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>s6</servlet-name>
+        <servlet-name>s1</servlet-name>
         <servlet-class>com.example.transportationProject.servlet.signUpCustomeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>s6</servlet-name>
+        <servlet-name>s1</servlet-name>
         <url-pattern>/signUpCustomer</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>s2</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.signinCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s2</servlet-name>
+        <url-pattern>/signInFormCustomer</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

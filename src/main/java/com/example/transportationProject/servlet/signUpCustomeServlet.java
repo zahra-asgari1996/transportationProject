@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "signUpCustomeServlet")
 public class signUpCustomeServlet extends HttpServlet {
@@ -30,6 +31,8 @@ doGet(request,response);
         Customer customer=new Customer(userName,pass,name,lname,email,phone,gender);
         CustomerDoa customerDoa=new CustomerDoa();
         customerDoa.saveNewCustomer(customer);
+        PrintWriter out = response.getWriter();
+        out.println("welcome"+" "+ userName);
 
 
 
