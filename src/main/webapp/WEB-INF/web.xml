@@ -32,5 +32,14 @@
         <url-pattern>/signInCustomer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s3</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.SaveNewPacketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s3</servlet-name>
+        <url-pattern>/newPacket</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

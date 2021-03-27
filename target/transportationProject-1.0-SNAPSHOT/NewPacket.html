@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<form>
+<form action="newPacket">
     <div class="originAddress">
         <label for="Oprovince">Origin Address:<br></label>
-        <select name="Oprovince" id="Oprovince" onchange="ChangeCityList()">
+        <select name="Oprovince" id="Oprovince" onchange="origin()">
             <option value="">-- province--</option>
             <option value="teh">Tehran</option>
             <option value="Az">Azarbayjan Shargi</option>
             <option value="esf">Esfahan</option>
-        </select>
+        </select><br>
         <select id="Ocity" name="Ocity"></select><br>
 
         <label for="Oaddress">Origin Address :<br></label>
@@ -23,12 +23,12 @@
 
     <div class="destinationAddress">
         <label for="Dprovince">Destination Address :<br></label>
-        <select name="Dprovince" id="Dprovince" onchange="ChangeCityList()">
+        <select name="Dprovince" id="Dprovince" onchange="destination()">
             <option value="">-- province--</option>
             <option value="teh">Tehran</option>
             <option value="Az">Azarbayjan Shargi</option>
             <option value="esf">Esfahan</option>
-        </select>
+        </select><br>
         <select id="Dcity" name="Dcity"></select><br>
 
         <label for="Daddress"> Destination Address :<br></label>
@@ -72,8 +72,8 @@
             <label for="height">Height:<br></label>
             <input type="number" id="height" name="height"><br>
 
-            <label for="lenght">Lenght:<br></label>
-            <input type="number" id="lenght" name="lenght"><br>
+            <label for="length">Lenght:<br></label>
+            <input type="number" id="length" name="length"><br>
 
             <label for="width">Width:<br></label>
             <input type="number" id="width" name="width"><br>

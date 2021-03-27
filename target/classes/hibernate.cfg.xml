@@ -8,5 +8,8 @@
         <property name="show_sql">true</property>
         <mapping class="com.example.transportationProject.model.Customer"/>
         <mapping class="com.example.transportationProject.model.Address"/>
+        <mapping class="com.example.transportationProject.model.NewPacket"/>
+        <mapping class="com.example.transportationProject.model.Employee"/>
+        <mapping class="com.example.transportationProject.model.DeliveryHistory"/>
     </session-factory>
 </hibernate-configuration>

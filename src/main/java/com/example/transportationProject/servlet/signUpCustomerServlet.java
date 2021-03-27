@@ -41,7 +41,7 @@ doGet(request,response);
         customerDoa.saveNewCustomer(customer);
         PrintWriter out = response.getWriter();
         out.println("welcome"+" "+ userName);
-        out.println("<br><br><a href= 'NewDelivery.html'>New Delivery</a>");
+        out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
 
 
 

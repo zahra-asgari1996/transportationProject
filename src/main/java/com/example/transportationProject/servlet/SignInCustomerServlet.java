@@ -29,7 +29,7 @@ public class SignInCustomerServlet extends HttpServlet {
             if (customer != null) {
                 if (customer.getPassword().equals(pass)) {
                     out.println("welcome"+" "+ userName);
-                    out.println("<br><br><a href= 'NewDelivery.html'>New Delivery</a>");
+                    out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
 
 
                 } else {

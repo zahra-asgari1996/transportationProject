@@ -72,3 +72,47 @@ function show(that){
 
 }
 
+var city1 = {};
+city1['teh'] = ['damavand', 'shahriyar'];
+city1['Az'] = ['tabriz', 'benab'];
+city1['esf'] = ['esfahan'];
+function origin() {
+
+    var provinceList1 = document.getElementById("Oprovince");
+    var cityList1 = document.getElementById("Ocity");
+    var selCity1 = provinceList1.options[provinceList1.selectedIndex].value;
+    while (cityList1.options.length) {
+        cityList1.remove(0);
+    }
+    var cites1 = city1[selCity1];
+    if (cites1) {
+        var i;
+        for (i = 0; i < cites1.length; i++) {
+            var c1 = new Option(cites1[i], i);
+            cityList1.options.add(c1);
+        }
+    }
+}
+
+var city2 = {};
+city2['teh'] = ['damavand', 'shahriyar'];
+city2['Az'] = ['tabriz', 'benab'];
+city2['esf'] = ['esfahan'];
+function destination() {
+
+    var provinceList2 = document.getElementById("Dprovince");
+    var cityList2 = document.getElementById("Dcity");
+    var selCity2 = provinceList2.options[provinceList2.selectedIndex].value;
+    while (cityList2.options.length) {
+        cityList2.remove(0);
+    }
+    var cites2 = city2[selCity2];
+    if (cites2) {
+        var i;
+        for (i = 0; i < cites2.length; i++) {
+            var c2 = new Option(cites2[i], i);
+            cityList2.options.add(c2);
+        }
+    }
+}
+

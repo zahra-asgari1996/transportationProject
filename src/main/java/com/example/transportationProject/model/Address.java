@@ -16,6 +16,10 @@ public class Address {
     private String address;
     @OneToMany(mappedBy = "address")
     private List<Customer> customerList=new ArrayList<>();
+    @OneToMany(mappedBy = "origin")
+    private List<NewPacket> origins=new ArrayList<>();
+    @OneToMany(mappedBy = "destination")
+    private List<NewPacket> destinations=new ArrayList<>();
 
     public Address() {
     }
@@ -64,5 +68,21 @@ public class Address {
 
     public void setCustomerList(List<Customer> customerList) {
         this.customerList = customerList;
+    }
+
+    public List<NewPacket> getOrigins() {
+        return origins;
+    }
+
+    public void setOrigins(List<NewPacket> origins) {
+        this.origins = origins;
+    }
+
+    public List<NewPacket> getDestinations() {
+        return destinations;
+    }
+
+    public void setDestinations(List<NewPacket> destinations) {
+        this.destinations = destinations;
     }
 }
