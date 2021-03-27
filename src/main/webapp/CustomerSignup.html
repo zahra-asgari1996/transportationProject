@@ -28,24 +28,19 @@
 
     </div>
 
-    <div class="select">
-        <label for="country">Country :<br></label>
-        <select name="country" id="country">
-
-            <option value="AD">Andorra</option>
-
-            <option value="AE">United Arab Emirates</option>
-
-            <option value="AF">Afghanistan</option>
-
-            <option value="ZA">South Africa</option>
-
-            <option value="ZM">Zambia</option>
-
-            <option value="ZW">Zimbabwe</option>
-
+    <div class="address">
+        <label for="province">Country :<br></label>
+        <select name="province" id="province" onchange="ChangeCityList()">
+            <option value="">-- province--</option>
+            <option value="teh">Tehran</option>
+            <option value="Az">Azarbayjan Shargi</option>
+            <option value="esf">Esfahan</option>
         </select>
 
+        <select id="city" name="city"></select>
+
+        <label for="address">Address :<br></label>
+        <input type="text" id="address" name="address"><br>
 
     </div>
 
@@ -67,7 +62,7 @@
     </div>
 
     <div class="signin">
-        <a href="signinCustomer.html">I have an account ! </a>
+        <a href="CustomerSignIn.html">I have an account ! </a>
     </div>
 
 </form>

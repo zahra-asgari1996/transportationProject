@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>s1</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.signUpCustomeServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.signUpCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s1</servlet-name>
@@ -25,11 +25,11 @@
 
     <servlet>
         <servlet-name>s2</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.signinCustomerServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.SignInCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s2</servlet-name>
-        <url-pattern>/signInFormCustomer</url-pattern>
+        <url-pattern>/signInCustomer</url-pattern>
     </servlet-mapping>
 
 

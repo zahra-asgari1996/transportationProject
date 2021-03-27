@@ -14,7 +14,7 @@ public class Customer {
     private String name;
     @Column
     private String lastName;
-    @Column(unique = true)
+    @Column
     private String email;
     @ManyToOne
     private Address address;
@@ -23,13 +23,13 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    public Customer(String userName, String password, String name, String lastName, String email,  long phoneNumber, Gender gender) {
+    public Customer(String userName, String password, String name, String lastName, String email, Address address, long phoneNumber, Gender gender) {
         this.userName = userName;
         this.password = password;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-        //this.address = address;
+        this.address = address;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
     }

@@ -9,7 +9,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     @Column
-    private String country;
+    private String province;
     @Column
     private String city;
     @Column
@@ -20,8 +20,8 @@ public class Address {
     public Address() {
     }
 
-    public Address(String country, String city, String address) {
-        this.country = country;
+    public Address(String province, String city, String address) {
+        this.province = province;
         this.city = city;
         this.address = address;
     }
@@ -34,12 +34,12 @@ public class Address {
         this.id = id;
     }
 
-    public String getCountry() {
-        return country;
+    public String getProvince() {
+        return province;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getCity() {

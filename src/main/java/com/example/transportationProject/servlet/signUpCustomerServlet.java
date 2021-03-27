@@ -1,7 +1,9 @@
 package com.example.transportationProject.servlet;
 
 import com.example.transportationProject.enums.Gender;
+import com.example.transportationProject.model.Address;
 import com.example.transportationProject.model.Customer;
+import com.example.transportationProject.service.AddressDao;
 import com.example.transportationProject.service.CustomerDoa;
 
 import javax.servlet.ServletException;
@@ -12,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "signUpCustomeServlet")
-public class signUpCustomeServlet extends HttpServlet {
+@WebServlet(name = "signUpCustomerServlet")
+public class signUpCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 doGet(request,response);
     }
@@ -28,11 +30,19 @@ doGet(request,response);
         String email=request.getParameter("email");
         long phone=Integer.valueOf(request.getParameter("phone"));
         Gender gender=Gender.valueOf(request.getParameter("gender"));
-        Customer customer=new Customer(userName,pass,name,lname,email,phone,gender);
+        String province=request.getParameter("province");
+        String city=request.getParameter("city");
+        String str=request.getParameter("address");
+        Address address=new Address(province,city,str);
+        AddressDao addressDao=new AddressDao();
+        addressDao.saveNewAddress(address);
+        Customer customer=new Customer(userName,pass,name,lname,email,address,phone,gender);
         CustomerDoa customerDoa=new CustomerDoa();
         customerDoa.saveNewCustomer(customer);
         PrintWriter out = response.getWriter();
         out.println("welcome"+" "+ userName);
+        out.println("<br><br><a href= 'NewDelivery.html'>New Delivery</a>");
+
 
 
 
