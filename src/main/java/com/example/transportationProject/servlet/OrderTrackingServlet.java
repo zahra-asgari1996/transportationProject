@@ -2,6 +2,7 @@ package com.example.transportationProject.servlet;
 
 import com.example.transportationProject.service.DeliveryHistoryDao;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,10 +25,18 @@ public class OrderTrackingServlet extends HttpServlet {
         if (session!=null){
             String userName= (String) session.getAttribute("userName");
             out.println("welcome"+" "+userName);
-            out.println("<br><br><a href= 'logout'>Log out</a>");
             int number=Integer.valueOf(request.getParameter("order"));
             DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
-            out.println(deliveryHistoryDao.showInformation(number).toString());
+            if (deliveryHistoryDao.findPacket(number)==null){
+                out.println("The order was not available!");
+                out.println("<br><br><a href= 'OrderTrackingNumber.html'>Track Order</a>");
+                out.println("<br><br><a href= 'index.jsp'>First page</a>");
+
+            }else{
+                out.println(deliveryHistoryDao.showInformation(number).toString());
+                out.println("<br><br><a href= 'logout'>Log out</a><br>");
+            }
+
 
 
 

@@ -29,7 +29,7 @@ input[type=submit]{
 
 }
 input[type=reset]{
-    background-color: crimson;
+    background-color: #67dc14;
     border-color: #f1f1f1;
 }
 
@@ -46,4 +46,10 @@ input[type=reset]{
     padding: 20px;
     color: #f6f6f6;
     width: 400px;
+}
+body{
+    background-image: url("packet.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #f8f6f7;
 }

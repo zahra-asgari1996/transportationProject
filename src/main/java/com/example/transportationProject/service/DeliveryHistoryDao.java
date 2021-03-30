@@ -26,4 +26,12 @@ public class DeliveryHistoryDao {
         session.getTransaction().commit();
         session.close();
     }
+
+    public DeliveryHistory findPacket(int id){
+        Session session= sessionFactory.openSession();
+        DeliveryHistory deliveryHistory =session.get(DeliveryHistory.class,id);
+        session.close();
+        return deliveryHistory;
+
+    }
 }

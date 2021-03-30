@@ -149,7 +149,7 @@ function silver() {
 }
 
 function show(that) {
-    if (that.value == "non-doc") {
+    if (that.value == "non") {
         document.getElementById("non-doc").style.display = "block";
     } else {
         document.getElementById("non-doc").style.display = "none";
@@ -230,6 +230,14 @@ function checkNewPacket() {
     }
 
 
+}
+function checkOrderNumber(){
+    if(document.getElementById("OrderTrackingNumber").value===""){
+        alert("please fill order number")
+        return false;
+    }else {
+        return true;
+    }
 }
 
 

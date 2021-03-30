@@ -54,25 +54,28 @@ public class SaveNewPacketServlet extends HttpServlet {
             CustomerDoa customerDoa=new CustomerDoa();
             Customer customer= customerDoa.findCustomer(userName);
             if (doc == TypeOfPacket.doc) {
-                NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, doc,customer);
+                NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, TypeOfPacket.doc,customer);
                 NewPacketDao newPacketDao = new NewPacketDao();
                 newPacketDao.saveNewPacket(newPacket);
                 DeliveryHistory deliveryHistory=new DeliveryHistory(StateOfPacket.registered,newPacket);
                 DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
                 deliveryHistoryDao.saveNewHistory(deliveryHistory);
-                out.println(newPacketDao.returnReserveCode());
+                out.println("Order code is : "+newPacketDao.returnReserveCode()+" "+
+                        "\nstate af packet is : "+" "+ StateOfPacket.registered);
+                out.println("<br><br><a href= 'index.jsp'>back to first page</a>");
             } else {
                 Content content = Content.valueOf(request.getParameter("content"));
                 double height = Integer.parseInt(request.getParameter("height"));
                 double width = Integer.parseInt(request.getParameter("width"));
                 double length = Integer.parseInt(request.getParameter("length"));
-                NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, content, height, width, length, doc,customer);
+                NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, content, height, width, length, TypeOfPacket.non,customer);
                 NewPacketDao newPacketDao = new NewPacketDao();
                 newPacketDao.saveNewPacket(newPacket);
                 DeliveryHistory deliveryHistory=new DeliveryHistory(StateOfPacket.registered,newPacket);
                 DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
                 deliveryHistoryDao.saveNewHistory(deliveryHistory);
-                out.println(newPacketDao.returnReserveCode());
+                out.println("Order code is : "+newPacketDao.returnReserveCode()+" "+
+                "\nstate af packet is : "+" "+ StateOfPacket.registered);
                 out.println("<br><br><a href= 'index.jsp'>back to first page</a>");
             }
         }else{
