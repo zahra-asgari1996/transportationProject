@@ -3,6 +3,8 @@ package com.example.transportationProject.model;
 import com.example.transportationProject.enums.Gender;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -22,6 +24,8 @@ public class Customer {
     private long phoneNumber;
     @Enumerated(EnumType.STRING)
     private Gender gender;
+    @OneToMany(mappedBy = "customer")
+    private List<NewPacket> packets=new ArrayList<>();
 
     public Customer(String userName, String password, String name, String lastName, String email, Address address, long phoneNumber, Gender gender) {
         this.userName = userName;
@@ -99,5 +103,13 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<NewPacket> getPackets() {
+        return packets;
+    }
+
+    public void setPackets(List<NewPacket> packets) {
+        this.packets = packets;
     }
 }

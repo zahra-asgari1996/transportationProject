@@ -9,12 +9,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "SignInCustomerServlet")
 public class SignInCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String userName = request.getParameter("userName");
@@ -28,28 +36,27 @@ public class SignInCustomerServlet extends HttpServlet {
             Customer customer = customerDoa.findCustomer(userName);
             if (customer != null) {
                 if (customer.getPassword().equals(pass)) {
+                    HttpSession session= request.getSession(true);
+                    session.setAttribute("userName",userName);
+                    session.setAttribute("pass",pass);
                     out.println("welcome"+" "+ userName);
                     out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
+                    out.println("<br><br><a href= 'OrderTrackingNumber.html'>Track Order</a>");
+                    out.println("<br><br><a href= 'logout'>Log out</a>");
 
 
                 } else {
                     out.println("your password is incorrect ");
-                    RequestDispatcher rd = request.getRequestDispatcher("sCustomerSignIn.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
                     rd.include(request, response);
                 }
             } else {
                 out.println("you do not have account plz signup first or user name and pass is incorrect");
                 out.println("<br><br><a href= 'CustomerSignup.html'>Sign Up</a>");
-                RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
-                rd.include(request, response);
+                out.println("<br><br><a href= 'CustomerSignIn.html'>Sign In</a>");
 
             }
         }
 
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
     }
 }

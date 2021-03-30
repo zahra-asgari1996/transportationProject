@@ -6,11 +6,13 @@ import com.example.transportationProject.model.Customer;
 import com.example.transportationProject.service.AddressDao;
 import com.example.transportationProject.service.CustomerDoa;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -41,7 +43,15 @@ doGet(request,response);
         customerDoa.saveNewCustomer(customer);
         PrintWriter out = response.getWriter();
         out.println("welcome"+" "+ userName);
-        out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
+        HttpSession session= request.getSession(false);
+        if (session!=null){
+            out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
+        }else{
+            out.println("You Should Login First");
+            RequestDispatcher rd=request.getRequestDispatcher("CustomerSignIn.html");
+            rd.include(request,response);
+        }
+
 
 
 

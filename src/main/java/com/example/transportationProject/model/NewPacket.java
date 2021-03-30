@@ -39,11 +39,25 @@ public class NewPacket {
     private StateOfPacket state;
     @OneToMany(mappedBy = "packet")
     private List<DeliveryHistory> deliveryHistoryList=new ArrayList<>();
+    @ManyToOne
+    private Customer customer;
 
     public NewPacket() {
     }
 
-    public NewPacket(Address origin, Address destination, String receiverName, long receiverPhone, TypeOfDelivery typeOfDelivery, double weight, Content content, double height, double width, double length, TypeOfPacket typeOfPacket) {
+    public NewPacket(Address origin, Address destination, String receiverName, long receiverPhone, TypeOfDelivery typeOfDelivery, double weight, TypeOfPacket typeOfPacket, Customer customer) {
+        this.origin = origin;
+        this.destination = destination;
+        this.receiverName = receiverName;
+        this.receiverPhone = receiverPhone;
+        this.typeOfDelivery = typeOfDelivery;
+        this.weight = weight;
+        this.typeOfPacket = typeOfPacket;
+
+        this.customer = customer;
+    }
+
+    public NewPacket(Address origin, Address destination, String receiverName, long receiverPhone, TypeOfDelivery typeOfDelivery, double weight, Content content, double height, double width, double length, TypeOfPacket typeOfPacket,  Customer customer) {
         this.origin = origin;
         this.destination = destination;
         this.receiverName = receiverName;
@@ -55,18 +69,8 @@ public class NewPacket {
         this.width = width;
         this.length = length;
         this.typeOfPacket = typeOfPacket;
-        this.state=StateOfPacket.registered;
-    }
 
-    public NewPacket(Address origin, Address destination, String receiverName, long receiverPhone, TypeOfDelivery typeOfDelivery, double weight, TypeOfPacket typeOfPacket) {
-        this.origin = origin;
-        this.destination = destination;
-        this.receiverName = receiverName;
-        this.receiverPhone = receiverPhone;
-        this.typeOfDelivery = typeOfDelivery;
-        this.weight = weight;
-        this.typeOfPacket = typeOfPacket;
-        this.state=StateOfPacket.registered;
+        this.customer = customer;
     }
 
     public int getId() {
@@ -179,5 +183,21 @@ public class NewPacket {
 
     public void setDeliveryHistoryList(List<DeliveryHistory> deliveryHistoryList) {
         this.deliveryHistoryList = deliveryHistoryList;
+    }
+
+    @Override
+    public String toString() {
+        return "NewPacket{" +
+                "id=" + id +
+                ", origin=" + origin +
+                ", destination=" + destination +
+                ", receiverName='" + receiverName + '\'' +
+                ", receiverPhone=" + receiverPhone +
+                ", typeOfDelivery=" + typeOfDelivery +
+                ", weight=" + weight +
+                ", typeOfPacket=" + typeOfPacket +
+                ", state=" + state +
+                ", customer=" + customer +
+                '}';
     }
 }

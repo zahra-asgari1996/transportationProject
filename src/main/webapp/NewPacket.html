@@ -1,119 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="NewPacketStyleSheet.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body onload="captcha()">
 
-<form action="newPacket">
-    <div class="originAddress">
-        <label for="Oprovince">Origin Address:<br></label>
-        <select name="Oprovince" id="Oprovince" onchange="origin()">
-            <option value="">-- province--</option>
-            <option value="teh">Tehran</option>
-            <option value="Az">Azarbayjan Shargi</option>
-            <option value="esf">Esfahan</option>
-        </select><br>
-        <select id="Ocity" name="Ocity"></select><br>
+<form action="newPacket" method="get" name="form">
+    <div class="container">
+        <div class="title">
+            <h2>New order Form</h2>
+        </div>
+        <br><div class="originAddress">
+            <label for="Oprovince">Origin Address:<br></label>
+            <select name="Oprovince" id="Oprovince" onchange="origin()">
+                <option value="">-- province--</option>
+                <option value="teh">Tehran</option>
+                <option value="Az">Azarbayjan Shargi</option>
+                <option value="Azg">Azarbayjan Gharbi</option>
+                <option value="Al">Alborz</option>
+                <option value="esf">Esfahan</option>
+                <option value="fa">Fars</option>
+                <option value="maz">Mazandaran</option>
+                <option value="zan">Zanjan</option>
+            </select><br>
+            <select id="Ocity" name="Ocity"></select><br>
+            <input type="text" id="Oaddress" name="Oaddress" placeholder="Address"><br>
+        </div>
 
-        <label for="Oaddress">Origin Address :<br></label>
-        <input type="text" id="Oaddress" name="Oaddress"><br>
-    </div>
+        <div class="destinationAddress">
+            <label for="Dprovince">Destination Address :<br></label>
+            <select name="Dprovince" id="Dprovince" onchange="destination()">
+                <option value="">-- province--</option>
+                <option value="teh">Tehran</option>
+                <option value="Az">Azarbayjan Shargi</option>
+                <option value="Azg">Azarbayjan Gharbi</option>
+                <option value="Al">Alborz</option>
+                <option value="esf">Esfahan</option>
+                <option value="fa">Fars</option>
+                <option value="maz">Mazandaran</option>
+                <option value="zan">Zanjan</option>
+            </select><br>
+            <select id="Dcity" name="Dcity"></select><br>
 
-    <div class="destinationAddress">
-        <label for="Dprovince">Destination Address :<br></label>
-        <select name="Dprovince" id="Dprovince" onchange="destination()">
-            <option value="">-- province--</option>
-            <option value="teh">Tehran</option>
-            <option value="Az">Azarbayjan Shargi</option>
-            <option value="esf">Esfahan</option>
-        </select><br>
-        <select id="Dcity" name="Dcity"></select><br>
+            <input type="text" id="Daddress" name="Daddress" placeholder="Address"><br>
+        </div>
 
-        <label for="Daddress"> Destination Address :<br></label>
-        <input type="text" id="Daddress" name="Daddress"><br>
-    </div>
+        <div class="Recipient">
+            <label for="Rname">Name:<br></label>
+            <input type="text" id="Rname" name="name"><br>
 
-    <div class="Recipient">
-        <label for="name">Name:<br></label>
-        <input type="text" id="name" name="name"><br>
-
-        <label for="phone">Phone Number:<br></label>
-        <input type="number" id="phone" name="phone"><br>
-    </div>
-
-
-    <div class="weight">
-        <label for="weight">weight:<br></label>
-        <input type="number" id="weight" name="weight"><br>
-    </div>
-
-    <div class="document" >
-        <select name="doc" id="doc" onchange="show(this)">
-            <label >Choose doc or non-doc:</label><br>
-            <option value="" >--choose--</option>
-            <option value="non-doc" id="n">non-doc</option>
-            <option value="doc" id="d" >doc</option>
-        </select>
-    </div>
+            <label for="Rphone">Phone Number:<br></label>
+            <input type="tel" id="Rphone" name="phone"><br>
+        </div>
 
 
-    <div class="non_doc" style="display: none;" id="non-doc">
-        <div class="content">
-            <label for="content">Choose a content:</label><br>
-            <select name="content" id="content">
-                <option value="dress">Dress </option>
-                <option value="book">Book </option>
+        <div class="document">
+            <select name="doc" id="doc" onchange="show(this)">
+                <label>Choose doc or non-doc:</label><br>
+                <option value="">--choose--</option>
+                <option value="non-doc" id="n">non-doc</option>
+                <option value="doc" id="d">doc</option>
             </select>
         </div>
 
-        <div class="otherInformation" >
-            <label for="height">Height:<br></label>
-            <input type="number" id="height" name="height"><br>
-
-            <label for="length">Lenght:<br></label>
-            <input type="number" id="length" name="length"><br>
-
-            <label for="width">Width:<br></label>
-            <input type="number" id="width" name="width"><br>
+        <div class="weight">
+            <label for="weight">weight:<br></label>
+            <input type="number" id="weight" name="weight"><br>
         </div>
 
 
-    </div>
+        <div class="non_doc" style="display: none;" id="non-doc">
+            <div class="content">
+                <label for="content">Choose a content:</label><br>
+                <select name="content" id="content">
+                    <option value="dress">--Content--</option>
+                    <option value="dress">Dress</option>
+                    <option value="book">Book</option>
+                    <option value="home">Home Appliances</option>
+                    <option value="Plant">Plant</option>
+                    <option value="Foodstuffs">Foodstuffs</option>
+                </select>
+            </div>
 
-<!--    <div class="price">-->
-<!--        <label for="price">choose price : </label><br>-->
-<!--        <input type="radio" id="price" name="price" value="price">-->
-<!--    </div>-->
+            <div class="otherInformation">
+                <label for="height">Height:<br></label>
+                <input type="number" id="height" name="height"><br>
 
-    <div class="choose" >
-        <h4>Choose a way:</h4><br>
-        <div class="premium" onclick="premium()">
-        <label for="premium">Premium  : </label><br>
-        <input type="radio" id="premium" name="price" value="premium">
+                <label for="length">Lenght:<br></label>
+                <input type="number" id="length" name="length"><br>
+
+                <label for="width">Width:<br></label>
+                <input type="number" id="width" name="width"><br>
+            </div>
+
+
         </div>
 
-        <div class="gold" onclick="gold()">
-        <label for="gold">Gold : </label><br>
-        <input type="radio" id="gold" name="price" value="gold">
+
+        <div class="choose" id="type">
+            <h4>Choose a way:</h4>
+            <div class="premium" onclick="premium()">
+                <input type="radio" id="premium" name="price" value="premium">
+                <label for="premium">Premium </label><br>
+            </div>
+
+            <div class="gold" onclick="gold()">
+                <input type="radio" id="gold" name="price" value="gold">
+                <label for="gold">Gold </label><br>
+            </div>
+
+            <div class="silver" onclick="silver()">
+                <input type="radio" id="silver" name="price" value="silver">
+                <label for="silver">Silver </label><br><br>
+            </div>
+
         </div>
 
-        <div class="silver" onclick="silver()">
-        <label for="silver">Silver : </label><br>
-        <input type="radio" id="silver" name="price" value="silver">
+        <label id="ebcaptchatext"></label><br>
+        <input type="number" class="textbox" id="ebcaptchainput"><br>
+
+        <div>
+            <br><input type="reset" id="reset" name="reset" value="Reset">
+            <input type="submit" id="submit" name="submit " value="Save" onclick="return checkNewPacket()">
         </div>
-
     </div>
-
-    <div class="reset">
-        <input type="reset" id="reset" name="reset" value="Reset"><br>
-    </div>
-
-    <div class="submit">
-        <input type="submit" id="submit" name="submit " value="Save" ><br>
-    </div>
-
 
 </form>
 
