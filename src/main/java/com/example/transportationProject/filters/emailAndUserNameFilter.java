@@ -1,6 +1,6 @@
 package com.example.transportationProject.filters;
 
-import com.example.transportationProject.service.CustomerDoa;
+import com.example.transportationProject.model.dao.CustomerDoa;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

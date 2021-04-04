@@ -69,6 +69,15 @@
         <url-pattern>/order</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s5</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.EmployeeLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s5</servlet-name>
+        <url-pattern>/EmployeeLogin</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

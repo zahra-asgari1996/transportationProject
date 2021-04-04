@@ -1,10 +1,10 @@
 package com.example.transportationProject.servlet;
 
 import com.example.transportationProject.enums.Gender;
-import com.example.transportationProject.model.Address;
-import com.example.transportationProject.model.Customer;
-import com.example.transportationProject.service.AddressDao;
-import com.example.transportationProject.service.CustomerDoa;
+import com.example.transportationProject.model.entity.Address;
+import com.example.transportationProject.model.entity.Customer;
+import com.example.transportationProject.model.dao.AddressDao;
+import com.example.transportationProject.model.dao.CustomerDoa;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,11 +19,6 @@ import java.io.PrintWriter;
 @WebServlet(name = "signUpCustomerServlet")
 public class signUpCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-doGet(request,response);
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("text/html");
         String userName=request.getParameter("userName");
         String pass=request.getParameter("pass");
@@ -53,10 +48,7 @@ doGet(request,response);
             rd.include(request,response);
         }
 
-
-
-
-
-
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 }

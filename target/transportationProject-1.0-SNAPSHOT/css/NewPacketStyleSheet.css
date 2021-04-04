@@ -1,0 +1,55 @@
+input[type="text"], input[type="tel"], input[type="email"], select
+{
+    width: 400px;
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 2px solid #dadada;
+    color: #888;
+    border-radius: 5px;
+}
+#weight,#ebcaptchainput{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+select{
+    width: 425px;
+    height: 45px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+input[type=submit],input[type=reset]{
+    padding: 8px 30px;
+    width: 15%;
+
+}
+input[type=submit]{
+   background-color: cornflowerblue;
+    border-color: #f1f1f1;
+
+}
+input[type=reset]{
+    background-color: #67dc14;
+    border-color: #f1f1f1;
+}
+
+.container{
+    margin-left: 20px;
+}
+.title{
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5195A8), color-stop(100, #70EAFF));
+    background: -moz-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+    background: -ms-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+    background: -o-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+    background: linear-gradient(to bottom right, #5195A8 0%, #70EAFF 100%);
+    border-radius:5px 5px 0 0 ;
+    padding: 20px;
+    color: #f6f6f6;
+    width: 400px;
+}
+body{
+    background-image: url("../pic/packet.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #f8f6f7;
+}

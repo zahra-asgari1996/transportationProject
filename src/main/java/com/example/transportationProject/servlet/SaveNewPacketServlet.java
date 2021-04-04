@@ -4,14 +4,14 @@ import com.example.transportationProject.enums.Content;
 import com.example.transportationProject.enums.StateOfPacket;
 import com.example.transportationProject.enums.TypeOfDelivery;
 import com.example.transportationProject.enums.TypeOfPacket;
-import com.example.transportationProject.model.Address;
-import com.example.transportationProject.model.Customer;
-import com.example.transportationProject.model.DeliveryHistory;
-import com.example.transportationProject.model.NewPacket;
-import com.example.transportationProject.service.AddressDao;
-import com.example.transportationProject.service.CustomerDoa;
-import com.example.transportationProject.service.DeliveryHistoryDao;
-import com.example.transportationProject.service.NewPacketDao;
+import com.example.transportationProject.model.entity.Address;
+import com.example.transportationProject.model.entity.Customer;
+import com.example.transportationProject.model.entity.DeliveryHistory;
+import com.example.transportationProject.model.entity.NewPacket;
+import com.example.transportationProject.model.dao.AddressDao;
+import com.example.transportationProject.model.dao.CustomerDoa;
+import com.example.transportationProject.model.dao.DeliveryHistoryDao;
+import com.example.transportationProject.model.dao.NewPacketDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,10 +25,8 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "SaveNewPacketServlet")
 public class SaveNewPacketServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         AddressDao addressDao=new AddressDao();
@@ -57,12 +55,13 @@ public class SaveNewPacketServlet extends HttpServlet {
                 NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, TypeOfPacket.doc,customer);
                 NewPacketDao newPacketDao = new NewPacketDao();
                 newPacketDao.saveNewPacket(newPacket);
-                DeliveryHistory deliveryHistory=new DeliveryHistory(StateOfPacket.registered,newPacket);
-                DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
-                deliveryHistoryDao.saveNewHistory(deliveryHistory);
                 out.println("Order code is : "+newPacketDao.returnReserveCode()+" "+
                         "\nstate af packet is : "+" "+ StateOfPacket.registered);
                 out.println("<br><br><a href= 'index.jsp'>back to first page</a>");
+                DeliveryHistory deliveryHistory=new DeliveryHistory(StateOfPacket.registered,newPacket);
+                DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
+                deliveryHistoryDao.saveNewHistory(deliveryHistory);
+
             } else {
                 Content content = Content.valueOf(request.getParameter("content"));
                 double height = Integer.parseInt(request.getParameter("height"));
@@ -71,12 +70,13 @@ public class SaveNewPacketServlet extends HttpServlet {
                 NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, content, height, width, length, TypeOfPacket.non,customer);
                 NewPacketDao newPacketDao = new NewPacketDao();
                 newPacketDao.saveNewPacket(newPacket);
+                out.println("Order code is : "+newPacketDao.returnReserveCode()+" "+
+                        "\nstate af packet is : "+" "+ StateOfPacket.registered);
+                out.println("<br><br><a href= 'index.jsp'>back to first page</a>");
                 DeliveryHistory deliveryHistory=new DeliveryHistory(StateOfPacket.registered,newPacket);
                 DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
                 deliveryHistoryDao.saveNewHistory(deliveryHistory);
-                out.println("Order code is : "+newPacketDao.returnReserveCode()+" "+
-                "\nstate af packet is : "+" "+ StateOfPacket.registered);
-                out.println("<br><br><a href= 'index.jsp'>back to first page</a>");
+
             }
         }else{
             out.println("You Should Login First");
@@ -85,8 +85,9 @@ public class SaveNewPacketServlet extends HttpServlet {
 
         }
         out.println("<br><br><a href= 'logout'>Log out</a>");
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
 
 }

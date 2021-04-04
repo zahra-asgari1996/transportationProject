@@ -6,10 +6,10 @@
         <property name="connection.password"></property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
-        <mapping class="com.example.transportationProject.model.Customer"/>
-        <mapping class="com.example.transportationProject.model.Address"/>
-        <mapping class="com.example.transportationProject.model.NewPacket"/>
-        <mapping class="com.example.transportationProject.model.Employee"/>
-        <mapping class="com.example.transportationProject.model.DeliveryHistory"/>
+        <mapping class="com.example.transportationProject.model.entity.Customer"/>
+        <mapping class="com.example.transportationProject.model.entity.Address"/>
+        <mapping class="com.example.transportationProject.model.entity.NewPacket"/>
+        <mapping class="com.example.transportationProject.model.entity.Employee"/>
+        <mapping class="com.example.transportationProject.model.entity.DeliveryHistory"/>
     </session-factory>
 </hibernate-configuration>

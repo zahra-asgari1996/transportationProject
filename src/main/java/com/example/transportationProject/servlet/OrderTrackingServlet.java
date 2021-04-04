@@ -1,8 +1,7 @@
 package com.example.transportationProject.servlet;
 
-import com.example.transportationProject.service.DeliveryHistoryDao;
+import com.example.transportationProject.model.dao.DeliveryHistoryDao;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +14,6 @@ import java.io.PrintWriter;
 @WebServlet(name = "OrderTrackingServlet")
 public class OrderTrackingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session= request.getSession(false);
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -36,14 +31,13 @@ public class OrderTrackingServlet extends HttpServlet {
                 out.println(deliveryHistoryDao.showInformation(number).toString());
                 out.println("<br><br><a href= 'logout'>Log out</a><br>");
             }
-
-
-
-
         }else{
             out.println("Please Sign in or sign up first !");
             out.println("<br><br><a href= 'CustomerSignup.html'>Sign Up</a>");
             out.println("<br><br><a href= 'CustomerSignIn.html'>Sign In</a>");
         }
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }

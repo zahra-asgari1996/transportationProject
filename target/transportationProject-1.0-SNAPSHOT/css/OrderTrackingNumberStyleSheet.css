@@ -1,0 +1,31 @@
+input[type=number]{
+    border-radius: 5px;
+    padding: 8px 50px;
+}
+#text{
+    color: #6017a2;
+    font-size: 25px;
+}
+body{
+
+  margin: 250px 250px 250px 250px;
+    background-image: url("../pic/search.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+input[type=submit]{
+    background-color: #d90707;
+    font-size: 20px;
+    padding: 8px 50px;
+    color: azure;
+}
+.container{
+    width: 500px;
+    height: 300px;
+    font-family: Arial,Helvetica,sans-serif;
+    margin-left: 550px;
+
+
+
+
+}

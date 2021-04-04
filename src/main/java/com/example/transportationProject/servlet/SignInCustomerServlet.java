@@ -1,7 +1,7 @@
 package com.example.transportationProject.servlet;
 
-import com.example.transportationProject.model.Customer;
-import com.example.transportationProject.service.CustomerDoa;
+import com.example.transportationProject.model.entity.Customer;
+import com.example.transportationProject.model.dao.CustomerDoa;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,30 +16,23 @@ import java.io.PrintWriter;
 @WebServlet(name = "SignInCustomerServlet")
 public class SignInCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String userName = request.getParameter("userName");
         String pass = request.getParameter("pass");
-        if (userName=="" || pass==""){
+        if (userName == "" || pass == "") {
             out.println("plz fill username and  pass");
-            RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
+            RequestDispatcher rd = request.getRequestDispatcher("../html/CustomerSignIn.html");
             rd.include(request, response);
-        }else {
+        } else {
             CustomerDoa customerDoa = new CustomerDoa();
             Customer customer = customerDoa.findCustomer(userName);
             if (customer != null) {
                 if (customer.getPassword().equals(pass)) {
-                    HttpSession session= request.getSession(true);
-                    session.setAttribute("userName",userName);
-                    session.setAttribute("pass",pass);
-                    out.println("welcome"+" "+ userName);
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("userName", userName);
+                    session.setAttribute("pass", pass);
+                    out.println("welcome" + " " + userName);
                     out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
                     out.println("<br><br><a href= 'OrderTrackingNumber.html'>Track Order</a>");
                     out.println("<br><br><a href= 'logout'>Log out</a>");
@@ -47,7 +40,7 @@ public class SignInCustomerServlet extends HttpServlet {
 
                 } else {
                     out.println("your password is incorrect ");
-                    RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("../html/CustomerSignIn.html");
                     rd.include(request, response);
                 }
             } else {
@@ -57,6 +50,8 @@ public class SignInCustomerServlet extends HttpServlet {
 
             }
         }
+    }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 }
