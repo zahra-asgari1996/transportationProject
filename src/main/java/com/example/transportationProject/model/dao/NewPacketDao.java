@@ -1,6 +1,5 @@
 package com.example.transportationProject.model.dao;
 
-import com.example.transportationProject.model.dao.HibernateUtil;
 import com.example.transportationProject.model.entity.NewPacket;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -23,7 +22,7 @@ public class NewPacketDao {
     public int returnReserveCode(){
         Session session= sessionFactory.openSession();
         Transaction txn = session.beginTransaction();
-        Query query=session.createQuery(" select max (n.id) from com.example.transportationProject.model.NewPacket as n ");
+        Query query=session.createQuery(" select max (n.id) from NewPacket as n ");
         List<Integer> list=query.getResultList();
         txn.commit();
         session.close();

@@ -31,7 +31,7 @@ public class CustomerDoa {
     public  boolean findByEmail(String email){
         Session session= sessionFactory.openSession();
         Transaction txn = session.beginTransaction();
-        Query query=session.createQuery("from com.example.transportationProject.model.Customer as c where c.email=:email")
+        Query query=session.createQuery("from Customer as c where c.email=:email")
                 .setParameter("email",email);
         List<Customer> customer=query.getResultList();
         txn.commit();

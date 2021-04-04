@@ -85,4 +85,13 @@ public class Address {
     public void setDestinations(List<NewPacket> destinations) {
         this.destinations = destinations;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

@@ -22,6 +22,7 @@ public class LogOutServlet extends HttpServlet {
             RequestDispatcher rd= request.getRequestDispatcher("index.jsp");
             rd.include(request,response);
         }else{
+            //شما لاگین نیستی برو صفحه لاگین
             out.println("You Log out Before ");
         }
     }

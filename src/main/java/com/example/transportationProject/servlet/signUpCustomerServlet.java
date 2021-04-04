@@ -38,6 +38,7 @@ public class signUpCustomerServlet extends HttpServlet {
         customerDoa.saveNewCustomer(customer);
         PrintWriter out = response.getWriter();
         out.println("welcome"+" "+ userName);
+        //to do ceate session for sign up
         HttpSession session= request.getSession(false);
         if (session!=null){
             out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");

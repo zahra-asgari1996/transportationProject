@@ -20,6 +20,7 @@ public class Customer {
     private String email;
     @ManyToOne
     private Address address;
+    //شماره موبایل باید استرینگ باشه
     @Column
     private long phoneNumber;
     @Enumerated(EnumType.STRING)
@@ -111,5 +112,16 @@ public class Customer {
 
     public void setPackets(List<NewPacket> packets) {
         this.packets = packets;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "userName='" + userName + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                '}';
     }
 }

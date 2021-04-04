@@ -22,6 +22,7 @@ public class OrderTrackingServlet extends HttpServlet {
             out.println("welcome"+" "+userName);
             int number=Integer.valueOf(request.getParameter("order"));
             DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
+            //بسته ی یه نفر دیگه رو نباید بتونم ببینم
             if (deliveryHistoryDao.findPacket(number)==null){
                 out.println("The order was not available!");
                 out.println("<br><br><a href= 'OrderTrackingNumber.html'>Track Order</a>");

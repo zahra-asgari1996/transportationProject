@@ -78,6 +78,28 @@
         <url-pattern>/EmployeeLogin</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s6</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.TakeMoreOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s6</servlet-name>
+        <url-pattern>/take</url-pattern>
+    </servlet-mapping>
+
+<!--یه سرولت که توش session  رو چک بکنه-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>s7</servlet-name>-->
+<!--        <servlet-class>com.example.transportationProject.servlet.TakeMoreOrderServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>s7</servlet-name>-->
+<!--        <url-pattern>/*.html</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+
+
 
 
 </web-app>

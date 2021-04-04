@@ -22,7 +22,7 @@ public class SignInCustomerServlet extends HttpServlet {
         String pass = request.getParameter("pass");
         if (userName == "" || pass == "") {
             out.println("plz fill username and  pass");
-            RequestDispatcher rd = request.getRequestDispatcher("../html/CustomerSignIn.html");
+            RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
             rd.include(request, response);
         } else {
             CustomerDoa customerDoa = new CustomerDoa();
@@ -33,6 +33,7 @@ public class SignInCustomerServlet extends HttpServlet {
                     session.setAttribute("userName", userName);
                     session.setAttribute("pass", pass);
                     out.println("welcome" + " " + userName);
+                    //include a jsp file to print links
                     out.println("<br><br><a href= 'NewPacket.html'>New Delivery</a>");
                     out.println("<br><br><a href= 'OrderTrackingNumber.html'>Track Order</a>");
                     out.println("<br><br><a href= 'logout'>Log out</a>");
@@ -40,7 +41,7 @@ public class SignInCustomerServlet extends HttpServlet {
 
                 } else {
                     out.println("your password is incorrect ");
-                    RequestDispatcher rd = request.getRequestDispatcher("../html/CustomerSignIn.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
                     rd.include(request, response);
                 }
             } else {

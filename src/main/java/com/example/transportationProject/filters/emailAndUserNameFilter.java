@@ -22,6 +22,8 @@ public class emailAndUserNameFilter implements Filter {
             if (!customerDoa.findByEmail(email)) {
                 chain.doFilter(req, resp);
             } else {
+                //توی jsp  یا با $ یا با % توش کد جاوا مینویسیم get attribute
+                // ابجکت برای این ارور ها بساز بعد مساوی قرار بده بعد ست اتریبیوت کن بفرست تو jsp
                 out.println("email is duplicated ");
                 RequestDispatcher rd = req.getRequestDispatcher("CustomerSignup.html");
                 rd.include(req, resp);

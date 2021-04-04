@@ -1,6 +1,7 @@
 package com.example.transportationProject.model.entity;
 
 import com.example.transportationProject.enums.StateOfPacket;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class DeliveryHistory {
     @ManyToOne
     private Employee employee;
     @Column
+    @CreationTimestamp
     private Date date;
     @ManyToOne
     private NewPacket packet;

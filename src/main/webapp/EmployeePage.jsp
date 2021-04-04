@@ -12,7 +12,7 @@
 </head>
 <body>
 <a href="#">Pending orders</a>
-<a href="#" >Take more orders</a>
+<a href="take" >Take more orders</a>
 
 </body>
 </html>
