@@ -98,6 +98,15 @@
 <!--        <url-pattern>/*.html</url-pattern>-->
 <!--    </servlet-mapping>-->
 
+    <servlet>
+        <servlet-name>s7</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.SaveNewDeliveyHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s7</servlet-name>
+        <url-pattern>/takeOrder</url-pattern>
+    </servlet-mapping>
+
 
 
 

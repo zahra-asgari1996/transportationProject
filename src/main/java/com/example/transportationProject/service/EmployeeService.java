@@ -14,5 +14,12 @@ public class EmployeeService {
             return true;
         }
         return false;
+    } public Employee returnEmployee(String userName){
+        EmployeeDao employeeDao = new EmployeeDao();
+        List<Employee>employee = employeeDao.findByUserName(userName);
+        if (employee != null) {
+            return employee.get(0);
+        }
+        return null;
     }
 }

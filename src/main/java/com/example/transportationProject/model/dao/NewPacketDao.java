@@ -1,5 +1,6 @@
 package com.example.transportationProject.model.dao;
 
+import com.example.transportationProject.model.entity.Customer;
 import com.example.transportationProject.model.entity.NewPacket;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -19,6 +20,13 @@ public class NewPacketDao {
         session.close();
     }
 
+    public NewPacket findPacketById(int id){
+        Session session= sessionFactory.openSession();
+        NewPacket newPacket =session.get(NewPacket.class,id);
+        session.close();
+        return newPacket;
+    }
+
     public int returnReserveCode(){
         Session session= sessionFactory.openSession();
         Transaction txn = session.beginTransaction();
@@ -29,7 +37,6 @@ public class NewPacketDao {
         if (!list.isEmpty()){
             return list.get(0);
         }return -1;
-
 
     }
 

@@ -30,6 +30,19 @@ public class DeliveryHistory {
         this.packet = packet;
     }
 
+    public DeliveryHistory(StateOfPacket state, Employee employee, NewPacket packet, String description) {
+        this.state = state;
+        this.employee = employee;
+        this.packet = packet;
+        this.description = description;
+    }
+
+    public DeliveryHistory(StateOfPacket state, Employee employee, NewPacket packet) {
+        this.state = state;
+        this.employee = employee;
+        this.packet = packet;
+    }
+
     public int getId() {
         return id;
     }
