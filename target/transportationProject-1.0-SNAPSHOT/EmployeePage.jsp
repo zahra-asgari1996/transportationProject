@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    HttpSession session1= request.getSession(false);
+    if (session1==null ||session1.getAttribute("userName")==null){
+        request.getRequestDispatcher("EmployeeLogin.html").forward(request,response);
+    }
+%>
 <html>
 <head>
     <title>Employee Page</title>
@@ -15,6 +21,9 @@
 <div class="topnav">
     <a href="pending">Pending orders</a>
     <a href="take">Take more orders</a>
+</div>
+<div class="logout">
+    <a href="logoutEmployee">Log out</a>
 </div>
 </body>
 </html>

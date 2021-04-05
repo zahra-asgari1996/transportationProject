@@ -22,9 +22,9 @@ public class NewPacket {
     @ManyToOne
     private Address destination;
     @Column
-    private String   receiverName;
+    private String receiverName;
     @Column
-    private long   receiverPhone;
+    private long receiverPhone;
     @Enumerated(EnumType.STRING)
     private TypeOfDelivery typeOfDelivery;
     private double weight;
@@ -41,7 +41,7 @@ public class NewPacket {
     @Enumerated(EnumType.STRING)
     private StateOfPacket state;
     @OneToMany(mappedBy = "packet")
-    private List<DeliveryHistory> deliveryHistoryList=new ArrayList<>();
+    private List<DeliveryHistory> deliveryHistoryList = new ArrayList<>();
     @ManyToOne
     private Customer customer;
 
@@ -56,11 +56,11 @@ public class NewPacket {
         this.typeOfDelivery = typeOfDelivery;
         this.weight = weight;
         this.typeOfPacket = typeOfPacket;
-
+        this.state = StateOfPacket.registered;
         this.customer = customer;
     }
 
-    public NewPacket(Address origin, Address destination, String receiverName, long receiverPhone, TypeOfDelivery typeOfDelivery, double weight, Content content, double height, double width, double length, TypeOfPacket typeOfPacket,  Customer customer) {
+    public NewPacket(Address origin, Address destination, String receiverName, long receiverPhone, TypeOfDelivery typeOfDelivery, double weight, Content content, double height, double width, double length, TypeOfPacket typeOfPacket, Customer customer) {
         this.origin = origin;
         this.destination = destination;
         this.receiverName = receiverName;
@@ -72,7 +72,7 @@ public class NewPacket {
         this.width = width;
         this.length = length;
         this.typeOfPacket = typeOfPacket;
-
+        this.state = StateOfPacket.registered;
         this.customer = customer;
     }
 

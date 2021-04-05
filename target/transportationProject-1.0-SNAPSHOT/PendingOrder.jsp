@@ -10,7 +10,7 @@
 <%
     HttpSession session1= request.getSession(false);
     if (session1==null ||session1.getAttribute("userName")==null){
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("EmployeeLogin.html").forward(request,response);
     }
 %>
 <html>
@@ -58,6 +58,10 @@
         <label for="delivered"> Delivered </label><br><br>
         <button type="submit">Click</button>
     </form>
+</div>
+
+<div class="logout">
+    <a href="logoutEmployee">Log out</a>
 </div>
 </body>
 </html>

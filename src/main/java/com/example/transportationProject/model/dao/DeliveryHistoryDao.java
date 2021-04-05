@@ -2,6 +2,7 @@ package com.example.transportationProject.model.dao;
 
 import com.example.transportationProject.enums.StateOfPacket;
 import com.example.transportationProject.model.entity.DeliveryHistory;
+import com.example.transportationProject.model.entity.NewPacket;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -49,8 +50,7 @@ public class DeliveryHistoryDao {
 
     public List<DeliveryHistory> findAcceptedPackets(int id) {
         Session session = sessionFactory.openSession();
-        List<DeliveryHistory> list = session.createQuery("from DeliveryHistory as d where d.state=:state and d.employee.id=:id ")
-                .setParameter("state", StateOfPacket.accepted)
+        List<DeliveryHistory> list = session.createQuery("from DeliveryHistory as d  where d.employee.id=:id ")
                 .setParameter("id",id)
                 .list();
         session.close();

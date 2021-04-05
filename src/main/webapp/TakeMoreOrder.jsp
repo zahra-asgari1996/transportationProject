@@ -50,8 +50,8 @@
 <div class="container">
     <h2>Please fill information </h2>
     <form action="takeOrder" method="post">
-        <input type="number" id="num" name="number" placeholder="Delivery number">
-        <input type="text" id="des" name="description" placeholder="Description">
+        <input type="number" id="num" name="number" placeholder="Delivery number"><br><br>
+        <input type="text" id="des" name="description" placeholder="Description"><br><br>
         <button type="submit" >submit</button>
     </form>
 </div>
