@@ -8,14 +8,17 @@
 <body>
 <form action="EmployeeLogin" method="post">
     <div class="container">
+        <h2>Login</h2>
         <div class="UserName">
-            <input type="text" name="userName" id="userName" placeholder="Please inter user name">
+            <label for="userName">Please inter user name</label><br>
+            <input type="text" name="userName" id="userName" placeholder="Username" required><br><br>
         </div>
         <div class="password">
-            <input type="password" name="password" id="password" placeholder="Please inter password">
+            <label for="password">Please inter password</label><br>
+            <input type="password" name="password" id="password" placeholder="password" required><br><br>
         </div>
         <div class="login">
-            <button type="submit" onclick="checkFieldInEmployeeLogin()">Login</button>
+            <button type="submit">Login</button>
         </div>
     </div>
 </form>
