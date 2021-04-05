@@ -27,7 +27,7 @@ public class DeliveryHistoryService {
         DeliveryHistoryDao deliveryHistoryDao=new DeliveryHistoryDao();
         DeliveryHistory deliveryHistory=new DeliveryHistory(state,employee,newPacket,description);
         deliveryHistoryDao.saveNewHistory(deliveryHistory);
-        newPacketDao.changeStateOfPacket(number);
+        newPacketDao.changeStateOfPacket(number,employee);
 
 
 

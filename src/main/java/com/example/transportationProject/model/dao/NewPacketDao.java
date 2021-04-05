@@ -3,6 +3,7 @@ package com.example.transportationProject.model.dao;
 import com.example.transportationProject.enums.StateOfPacket;
 import com.example.transportationProject.model.entity.Customer;
 import com.example.transportationProject.model.entity.DeliveryHistory;
+import com.example.transportationProject.model.entity.Employee;
 import com.example.transportationProject.model.entity.NewPacket;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -41,12 +42,13 @@ public class NewPacketDao {
         }return -1;
 
     }
-    public void changeStateOfPacket(int number){
+    public void changeStateOfPacket(int number, Employee employee){
         Session session= sessionFactory.openSession();
         Transaction txn = session.beginTransaction();
-        Query query=session.createQuery("update NewPacket as n set n.state=:state where n.id=:id ")
+        Query query=session.createQuery("update NewPacket as n set n.state=:state,n.employeee=:employee where n.id=:id ")
                 .setParameter("state", StateOfPacket.accepted)
-                .setParameter("id",number);
+                .setParameter("id",number)
+                .setParameter("employee",employee);
         query.executeUpdate();
         txn.commit();
         session.close();

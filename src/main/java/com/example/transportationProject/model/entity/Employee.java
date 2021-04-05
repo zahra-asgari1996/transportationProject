@@ -17,7 +17,7 @@ public class Employee {
     private String password;
     @OneToMany(mappedBy = "employee")
     private List<DeliveryHistory> historyList=new ArrayList<>();
-    @OneToMany
+    @OneToMany(mappedBy = "employeee")
     private List<NewPacket> newPackets=new ArrayList<>();
 
     public Employee() {
