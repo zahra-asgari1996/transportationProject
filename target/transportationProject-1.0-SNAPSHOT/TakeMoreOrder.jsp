@@ -40,7 +40,11 @@
 </table>
 
 <div>
-    <input type="number" id="num" placeholder="Delivery number">
+    <form action="takeOrder" method="post">
+        <input type="number" id="num" name="number" placeholder="Delivery number">
+        <input type="text" id="des" name="description">
+        <button type="submit" >submit</button>
+    </form>
 </div>
 
 </body>
