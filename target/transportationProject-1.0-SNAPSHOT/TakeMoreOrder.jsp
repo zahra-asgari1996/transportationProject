@@ -27,7 +27,7 @@
         <th>Origin</th>
         <th>Destination</th>
         <th>Receiver name</th>
-        <th>Type of packet/th>
+        <th>Type of packet</th>
     </tr>
 
     </thead>

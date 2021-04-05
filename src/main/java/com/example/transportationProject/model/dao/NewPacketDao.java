@@ -45,7 +45,7 @@ public class NewPacketDao {
         Session session= sessionFactory.openSession();
         Transaction txn = session.beginTransaction();
         Query query=session.createQuery("update NewPacket as n set n.state=:state where n.id=:id ")
-                .setParameter("state", StateOfPacket.registered)
+                .setParameter("state", StateOfPacket.accepted)
                 .setParameter("id",number);
         query.executeUpdate();
         txn.commit();
