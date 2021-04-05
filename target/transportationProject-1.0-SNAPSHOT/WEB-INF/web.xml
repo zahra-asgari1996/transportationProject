@@ -100,12 +100,32 @@
 
     <servlet>
         <servlet-name>s7</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.SaveNewDeliveyHistoryServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.SaveNewDeliveryHistoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s7</servlet-name>
         <url-pattern>/takeOrder</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>s8</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.PendingOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s8</servlet-name>
+        <url-pattern>/pending</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>s9</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.ChangeStateOfPacketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s9</servlet-name>
+        <url-pattern>/pendingorder</url-pattern>
+    </servlet-mapping>
+
+
 
 
 

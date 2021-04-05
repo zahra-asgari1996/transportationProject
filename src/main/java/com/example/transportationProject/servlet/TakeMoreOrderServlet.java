@@ -29,11 +29,6 @@ doGet(request, response);
             List<DeliveryHistory> list=dao.findRegisteredHistory();
             request.setAttribute("histories",list);
             request.getRequestDispatcher("/TakeMoreOrder.jsp").forward(request,response);
-            //تاریخ فعلی سیستم
-            Date date=new Date();
-
-
-
         }else{
             out.println("You should login first");
             request.getRequestDispatcher("EmployeeLogin.html").include(request,response);

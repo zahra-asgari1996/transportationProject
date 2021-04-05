@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="#">Pending orders</a>
+<a href="pending">Pending orders</a>
 <a href="take" >Take more orders</a>
 
 </body>

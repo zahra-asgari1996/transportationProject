@@ -47,4 +47,15 @@ public class DeliveryHistoryDao {
         return list;
     }
 
+    public List<DeliveryHistory> findAcceptedPackets(int id) {
+        Session session = sessionFactory.openSession();
+        List<DeliveryHistory> list = session.createQuery("from DeliveryHistory as d where d.state=:state and d.employee.id=:id ")
+                .setParameter("state", StateOfPacket.accepted)
+                .setParameter("id",id)
+                .list();
+        session.close();
+        return list;
+    }
+
+
 }
