@@ -17,6 +17,8 @@ public class Employee {
     private String password;
     @OneToMany(mappedBy = "employee")
     private List<DeliveryHistory> historyList=new ArrayList<>();
+    @OneToMany
+    private List<NewPacket> newPackets=new ArrayList<>();
 
     public Employee() {
     }
@@ -56,5 +58,13 @@ public class Employee {
 
     public void setHistoryList(List<DeliveryHistory> historyList) {
         this.historyList = historyList;
+    }
+
+    public List<NewPacket> getNewPackets() {
+        return newPackets;
+    }
+
+    public void setNewPackets(List<NewPacket> newPackets) {
+        this.newPackets = newPackets;
     }
 }

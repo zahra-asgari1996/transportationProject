@@ -1,6 +1,8 @@
 package com.example.transportationProject.model.dao;
 
+import com.example.transportationProject.enums.StateOfPacket;
 import com.example.transportationProject.model.entity.Customer;
+import com.example.transportationProject.model.entity.DeliveryHistory;
 import com.example.transportationProject.model.entity.NewPacket;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -39,6 +41,26 @@ public class NewPacketDao {
         }return -1;
 
     }
+    public void changeStateOfPacket(int number){
+        Session session= sessionFactory.openSession();
+        Transaction txn = session.beginTransaction();
+        Query query=session.createQuery("update NewPacket as n set n.state=:state where n.id=:id ")
+                .setParameter("state", StateOfPacket.registered)
+                .setParameter("id",number);
+        query.executeUpdate();
+        txn.commit();
+        session.close();
+    }
+
+    public List<NewPacket> findRegisteredHistory() {
+        Session session = sessionFactory.openSession();
+        List<NewPacket> list = session.createQuery("from NewPacket as n where n.state=:state  ")
+                .setParameter("state", StateOfPacket.registered)
+                .list();
+        session.close();
+        return list;
+    }
+
 
     @Override
     public String toString() {

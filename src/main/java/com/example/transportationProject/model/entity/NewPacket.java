@@ -44,6 +44,8 @@ public class NewPacket {
     private List<DeliveryHistory> deliveryHistoryList = new ArrayList<>();
     @ManyToOne
     private Customer customer;
+    @ManyToOne
+    private Employee employeee;
 
     public NewPacket() {
     }
@@ -202,5 +204,21 @@ public class NewPacket {
                 ", state=" + state +
                 ", customer=" + customer +
                 '}';
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Employee getEmployeee() {
+        return employeee;
+    }
+
+    public void setEmployeee(Employee employeee) {
+        this.employeee = employeee;
     }
 }

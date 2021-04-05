@@ -8,6 +8,7 @@ com\example\transportationProject\model\entity\DeliveryHistory.class
 com\example\transportationProject\model\entity\Employee.class
 com\example\transportationProject\servlet\ChangeStateOfPacketServlet.class
 com\example\transportationProject\model\entity\Customer.class
+com\example\transportationProject\servlet\LogoutEmployeeServlet.class
 com\example\transportationProject\enums\Gender.class
 com\example\transportationProject\model\dao\CustomerDoa.class
 com\example\transportationProject\model\dao\EmployeeDao.class

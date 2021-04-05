@@ -24,23 +24,21 @@
     <thead>
     <tr>
         <th>Id</th>
-        <th>State</th>
-        <th>Employee</th>
-        <th>Date</th>
-        <th>Packet Id</th>
-        <th>Description</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Receiver name</th>
+        <th>Type of packet/th>
     </tr>
 
     </thead>
     <tbody>
-    <c:forEach items="${histories}" var="list">
+    <c:forEach items="${newPacket}" var="l">
         <tr>
-            <td>${list.id}</td>
-            <td>${list.state}</td>
-            <td>${list.employee.id}</td>
-            <td>${list.date}</td>
-            <td>${list.packet.id}</td>
-            <td>${list.description}</td>
+            <td>${l.id}</td>
+            <td>${l.origin}</td>
+            <td>${l.destination}</td>
+            <td>${l.receiverName}</td>
+            <td>${l.typeOfPacket}</td>
         </tr>
     </c:forEach>
 
@@ -50,8 +48,8 @@
 <div class="container">
     <h2>Please fill information </h2>
     <form action="takeOrder" method="post">
-        <input type="number" id="num" name="number" placeholder="Delivery number">
-        <input type="text" id="des" name="description" placeholder="Description">
+        <input type="number" id="num" name="number" placeholder="Delivery number"><br><br>
+        <input type="text" id="des" name="description" placeholder="Description"><br><br>
         <button type="submit" >submit</button>
     </form>
 </div>

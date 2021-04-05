@@ -2,7 +2,9 @@ package com.example.transportationProject.servlet;
 
 import com.example.transportationProject.enums.StateOfPacket;
 import com.example.transportationProject.model.dao.DeliveryHistoryDao;
+import com.example.transportationProject.model.dao.NewPacketDao;
 import com.example.transportationProject.model.entity.DeliveryHistory;
+import com.example.transportationProject.model.entity.NewPacket;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,9 +27,9 @@ doGet(request, response);
         PrintWriter out= response.getWriter();
         HttpSession session= request.getSession(false);
         if (session!=null){
-            DeliveryHistoryDao dao=new DeliveryHistoryDao();
-            List<DeliveryHistory> list=dao.findRegisteredHistory();
-            request.setAttribute("histories",list);
+            NewPacketDao dao=new NewPacketDao();
+            List<NewPacket> list=dao.findRegisteredHistory();
+            request.setAttribute("newPacket",list);
             request.getRequestDispatcher("/TakeMoreOrder.jsp").forward(request,response);
         }else{
             out.println("You should login first");

@@ -39,18 +39,10 @@ public class DeliveryHistoryDao {
 
     }
 
-    public List<DeliveryHistory> findRegisteredHistory() {
-        Session session = sessionFactory.openSession();
-        List<DeliveryHistory> list = session.createQuery("from DeliveryHistory as d where d.state=:state ")
-                .setParameter("state", StateOfPacket.registered)
-                .list();
-        session.close();
-        return list;
-    }
 
     public List<DeliveryHistory> findAcceptedPackets(int id) {
         Session session = sessionFactory.openSession();
-        List<DeliveryHistory> list = session.createQuery("from DeliveryHistory as d  where d.employee.id=:id ")
+        List<DeliveryHistory> list = session.createQuery("from DeliveryHistory as d where d.employee.id=:id ")
                 .setParameter("id",id)
                 .list();
         session.close();
