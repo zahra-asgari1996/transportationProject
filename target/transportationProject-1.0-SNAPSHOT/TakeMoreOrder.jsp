@@ -9,10 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Take More Order</title>
+    <link rel="stylesheet" href="/css/PendingorderStyleSheet.css">
 </head>
 <body>
 <table>
+    <h2>Take More Orders</h2>
     <thead>
     <tr>
         <th>Id</th>
@@ -37,12 +39,13 @@
     </c:forEach>
 
     </tbody>
-</table>
+</table><br><br>
 
-<div>
+<div class="container">
+    <h2>Please fill information </h2>
     <form action="takeOrder" method="post">
         <input type="number" id="num" name="number" placeholder="Delivery number">
-        <input type="text" id="des" name="description">
+        <input type="text" id="des" name="description" placeholder="Description">
         <button type="submit" >submit</button>
     </form>
 </div>

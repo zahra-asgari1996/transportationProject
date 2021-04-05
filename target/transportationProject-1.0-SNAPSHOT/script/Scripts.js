@@ -241,18 +241,6 @@ function checkOrderNumber() {
     }
 }
 
-function checkFieldInEmployeeLogin() {
-    if (document.getElementById("userName").value === "") {
-        alert('Please fill the user name!');
-        return false;
-    } else if (document.getElementById("password").value==="") {
-        alert('Please fill the user name!');
-        return false;
-    } else {
-        return true;
-    }
-}
-
 
 
 

@@ -8,11 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Employee Page</title>
+    <link rel="stylesheet" href="/css/EmployeePageStyleSheet.css">
 </head>
 <body>
-<a href="pending">Pending orders</a>
-<a href="take" >Take more orders</a>
-
+<div class="topnav">
+    <a href="pending">Pending orders</a>
+    <a href="take">Take more orders</a>
+</div>
 </body>
 </html>

@@ -7,12 +7,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    HttpSession session1= request.getSession(false);
+    if (session1==null ||session1.getAttribute("userName")==null){
+        request.getRequestDispatcher("EmployeeLogin.html").forward(request,response);
+    }
+%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Pending Order</title>
+    <link rel="stylesheet" href="/css/PendingorderStyleSheet.css">
 </head>
 <body>
 <table>
+    <h2> Pending Orders</h2>
     <thead>
     <tr>
         <th>Id</th>
@@ -37,17 +45,19 @@
     </c:forEach>
 
     </tbody>
-</table>
+</table><br><br>
 
-<form action="pendingorder" method="post">
-    <input type="number" name="number" id="number">
-    <input type="text" name="des" id="des">
-    <input type="checkbox" id="sending" name="check" value="sending">
-    <label for="sending"> Sending</label><br>
-    <input type="checkbox" id="delivered" name="check" value="delivered">
-    <label for="delivered"> Delivered </label><br>
-    <button type="submit" >submit</button>
-
-</form>
+<div class="container">
+    <h2>Please fill information </h2>
+    <form action="pendingorder" method="post">
+        <input type="number" name="number" id="number" placeholder="Tracking number" required><br><br>
+        <input type="text" name="des" id="des" placeholder="Description"><br><br>
+        <input type="checkbox" id="sending" name="check" value="sending">
+        <label for="sending"> Sending</label><br>
+        <input type="checkbox" id="delivered" name="check" value="delivered">
+        <label for="delivered"> Delivered </label><br><br>
+        <button type="submit">Click</button>
+    </form>
+</div>
 </body>
 </html>

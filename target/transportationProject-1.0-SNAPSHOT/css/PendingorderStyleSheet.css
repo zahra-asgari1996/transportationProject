@@ -1,0 +1,35 @@
+table, td, th {
+    border: 3px solid #2987b9;
+    text-align: left;
+    margin-top: 80px;
+
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+body{
+    background-color: #e5f2f5;
+    text-align: center;
+}
+.container{
+    background: #ffffff;
+    width:300px;
+    border-radius:6px;
+    padding:50px 0px 70px 0px;
+    border: #2987b9 4px solid;
+}
+button{
+    width: 45%;
+    border-color: #031829;
+    border-radius: 2px;
+}
+input[type=number],input[type=text]{
+    width: 75%;
+}
