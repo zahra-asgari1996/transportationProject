@@ -22,5 +22,8 @@
     <a href="pending">Pending orders</a>
     <a href="take">Take more orders</a>
 </div>
+<div class="logout">
+    <a href="logoutEmployee">Log out</a>
+</div>
 </body>
 </html>

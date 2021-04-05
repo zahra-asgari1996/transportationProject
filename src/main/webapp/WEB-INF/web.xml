@@ -139,6 +139,16 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>s12</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.LogoutEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s12</servlet-name>
+        <url-pattern>/logoutEmployee</url-pattern>
+    </servlet-mapping>
+
+
 
 
 

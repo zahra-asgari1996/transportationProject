@@ -59,5 +59,9 @@
         <button type="submit">Click</button>
     </form>
 </div>
+
+<div class="logout">
+    <a href="logoutEmployee">Log out</a>
+</div>
 </body>
 </html>
