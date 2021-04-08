@@ -1,10 +1,8 @@
 package com.example.transportationProject.model.dao;
 
 import com.example.transportationProject.model.entity.Customer;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import com.example.transportationProject.model.entity.Employee;
+import org.hibernate.*;
 
 import java.util.List;
 
@@ -49,6 +47,13 @@ public class CustomerDoa {
         session.close();
         return customer;
 
+    }
+
+    public List<Customer> fetchAllCustomers(){
+        Session session= sessionFactory.openSession();
+        Criteria criteria=session.createCriteria(Customer.class);
+        List<Customer> customers=criteria.list();
+        return customers;
     }
 
 }

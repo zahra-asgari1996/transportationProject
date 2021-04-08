@@ -148,10 +148,59 @@
         <url-pattern>/logoutEmployee</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s13</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.EmployeesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s13</servlet-name>
+        <url-pattern>/employees</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s14</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.CustomersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s14</servlet-name>
+        <url-pattern>/customers</url-pattern>
+    </servlet-mapping>
 
+    <filter>
+        <filter-name>f3</filter-name>
+        <filter-class>com.example.transportationProject.filters.EmployeeSignUpFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f3</filter-name>
+        <url-pattern>/EmployeeSignUp</url-pattern>
+    </filter-mapping>
 
+    <servlet>
+        <servlet-name>s15</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.EmployeeSignUpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s15</servlet-name>
+        <url-pattern>/EmployeeSignUp</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s16</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.ManagerLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s16</servlet-name>
+        <url-pattern>/ManagerLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>s17</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.ManagerLogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s17</servlet-name>
+        <url-pattern>/managerLogout</url-pattern>
+    </servlet-mapping>
 
 
 

@@ -16,7 +16,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="CustomerSignup.html" id="customer">مشتری</a>
     <a href="EmployeeLogin.html" id="employee">کارمند</a>
-    <a href="#" id="manager">مدیر</a>
+    <a href="ManagerLogin.html" id="manager">مدیر</a>
 
 </div>
 

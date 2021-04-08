@@ -11,5 +11,6 @@
         <mapping class="com.example.transportationProject.model.entity.NewPacket"/>
         <mapping class="com.example.transportationProject.model.entity.Employee"/>
         <mapping class="com.example.transportationProject.model.entity.DeliveryHistory"/>
+        <mapping class="com.example.transportationProject.model.entity.Manager"/>
     </session-factory>
 </hibernate-configuration>

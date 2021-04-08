@@ -20,6 +20,8 @@ public class Address {
     private List<NewPacket> origins=new ArrayList<>();
     @OneToMany(mappedBy = "destination")
     private List<NewPacket> destinations=new ArrayList<>();
+    @OneToMany(mappedBy = "employeeAddress")
+    List<Employee> employees=new ArrayList<>();
 
     public Address() {
     }
@@ -85,6 +87,7 @@ public class Address {
     public void setDestinations(List<NewPacket> destinations) {
         this.destinations = destinations;
     }
+
 
     @Override
     public String toString() {
