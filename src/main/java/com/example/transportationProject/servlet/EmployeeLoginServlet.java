@@ -1,5 +1,6 @@
 package com.example.transportationProject.servlet;
 
+import com.example.transportationProject.model.entity.Employee;
 import com.example.transportationProject.service.EmployeeService;
 
 import javax.servlet.RequestDispatcher;
@@ -21,11 +22,15 @@ public class EmployeeLoginServlet extends HttpServlet {
         String pass = request.getParameter("password");
         EmployeeService employeeService=new EmployeeService();
         //بیا اینجا پسورد رو توی لایه سرویس باید چک کنی
-       if (employeeService.findEmployeeOrNot(userName)){
-           HttpSession httpSession= request.getSession(true);
-           httpSession.setAttribute("userName",userName);
-           httpSession.setAttribute("password",pass);
-           request.getRequestDispatcher("EmployeePage.jsp").forward(request,response);
+        Employee employee=employeeService.returnEmployee(userName);
+       if (employee!=null){
+           if (employee.getPassword().equalsIgnoreCase(pass)){
+               HttpSession httpSession= request.getSession(true);
+               httpSession.setAttribute("userName",userName);
+               httpSession.setAttribute("password",pass);
+               request.getRequestDispatcher("EmployeePage.jsp").forward(request,response);
+           }
+
 
        }else {
            out.println("your account not found please try again");
