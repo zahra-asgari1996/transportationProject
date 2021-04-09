@@ -33,6 +33,7 @@
         <th>Address</th>
         <th>Phone</th>
         <th>Gender</th>
+        <th>Number Of Packets</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +47,7 @@
             <td>${c.address}</td>
             <td>${c.phoneNumber}</td>
             <td>${c.gender}</td>
+            <td>${c.numOfPackets}</td>
         </tr>
     </c:forEach>
     </tbody>

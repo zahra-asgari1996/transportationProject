@@ -1,5 +1,6 @@
 package com.example.transportationProject.model.dao;
 
+import com.example.transportationProject.enums.StateOfPacket;
 import com.example.transportationProject.model.entity.Customer;
 import com.example.transportationProject.model.entity.Employee;
 import org.hibernate.*;
@@ -54,6 +55,16 @@ public class CustomerDoa {
         Criteria criteria=session.createCriteria(Customer.class);
         List<Customer> customers=criteria.list();
         return customers;
+    }
+    public void increaseNumOfPacket(Customer customer,int num){
+        Session session= sessionFactory.openSession();
+        Transaction txn = session.beginTransaction();
+        Query query=session.createQuery("update Customer as c set c.numOfPackets=:num where c.userName=:userName ")
+                .setParameter("num",num)
+                .setParameter("userName",customer.getUserName());
+        query.executeUpdate();
+        txn.commit();
+        session.close();
     }
 
 }

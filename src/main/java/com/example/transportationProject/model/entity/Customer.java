@@ -27,6 +27,8 @@ public class Customer {
     private Gender gender;
     @OneToMany(mappedBy = "customer")
     private List<NewPacket> packets=new ArrayList<>();
+    @Column
+    private int numOfPackets;
 
     public Customer(String userName, String password, String name, String lastName, String email, Address address, long phoneNumber, Gender gender) {
         this.userName = userName;
@@ -37,6 +39,7 @@ public class Customer {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
+        this.numOfPackets=0;
     }
 
     public Customer() {
@@ -114,6 +117,14 @@ public class Customer {
         this.packets = packets;
     }
 
+    public int getNumOfPackets() {
+        return numOfPackets;
+    }
+
+    public void setNumOfPackets(int numOfPackets) {
+        this.numOfPackets = numOfPackets;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -124,4 +135,5 @@ public class Customer {
                 ", gender=" + gender +
                 '}';
     }
+
 }

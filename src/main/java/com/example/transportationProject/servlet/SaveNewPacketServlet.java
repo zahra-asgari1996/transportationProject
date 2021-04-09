@@ -51,6 +51,7 @@ public class SaveNewPacketServlet extends HttpServlet {
             out.println("welcome" +" "+ userName );
             CustomerDoa customerDoa=new CustomerDoa();
             Customer customer= customerDoa.findCustomer(userName);
+            customerDoa.increaseNumOfPacket(customer, customer.getNumOfPackets()+1);
             if (doc == TypeOfPacket.doc) {
                 NewPacket newPacket = new NewPacket(origin, destination, name, phone, price, weight, TypeOfPacket.doc,customer);
                 NewPacketDao newPacketDao = new NewPacketDao();
