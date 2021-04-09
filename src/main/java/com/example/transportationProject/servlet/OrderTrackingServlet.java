@@ -35,7 +35,7 @@ public class OrderTrackingServlet extends HttpServlet {
         }else{
             out.println("Please Sign in or sign up first !");
             out.println("<br><br><a href= 'CustomerSignup.html'>Sign Up</a>");
-            out.println("<br><br><a href= 'CustomerSignIn.html'>Sign In</a>");
+            out.println("<br><br><a href= 'CustomerLogin.html'>Sign In</a>");
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

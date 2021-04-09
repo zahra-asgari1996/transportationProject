@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "signUpCustomerServlet")
-public class signUpCustomerServlet extends HttpServlet {
+@WebServlet(name = "CustomerSignupServlet")
+public class CustomerSignupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         String userName=request.getParameter("userName");
@@ -45,7 +45,7 @@ public class signUpCustomerServlet extends HttpServlet {
             out.println("<br><br><a href= 'OrderTrackingNumber.html'>Track Order</a>");
         }else{
             out.println("You Should Login First");
-            RequestDispatcher rd=request.getRequestDispatcher("CustomerSignIn.html");
+            RequestDispatcher rd=request.getRequestDispatcher("CustomerLogin.html");
             rd.include(request,response);
         }
 

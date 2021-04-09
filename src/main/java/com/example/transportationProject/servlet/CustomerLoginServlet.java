@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "SignInCustomerServlet")
-public class SignInCustomerServlet extends HttpServlet {
+@WebServlet(name = "CustomerLoginServlet")
+public class CustomerLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -22,7 +22,7 @@ public class SignInCustomerServlet extends HttpServlet {
         String pass = request.getParameter("pass");
         if (userName == "" || pass == "") {
             out.println("plz fill username and  pass");
-            RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
+            RequestDispatcher rd = request.getRequestDispatcher("CustomerLogin.html");
             rd.include(request, response);
         } else {
             CustomerDoa customerDoa = new CustomerDoa();
@@ -41,13 +41,13 @@ public class SignInCustomerServlet extends HttpServlet {
 
                 } else {
                     out.println("your password is incorrect ");
-                    RequestDispatcher rd = request.getRequestDispatcher("CustomerSignIn.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("CustomerLogin.html");
                     rd.include(request, response);
                 }
             } else {
                 out.println("you do not have account plz signup first or user name and pass is incorrect");
                 out.println("<br><br><a href= 'CustomerSignup.html'>Sign Up</a>");
-                out.println("<br><br><a href= 'CustomerSignIn.html'>Sign In</a>");
+                out.println("<br><br><a href= 'CustomerLogin.html'>Sign In</a>");
 
             }
         }

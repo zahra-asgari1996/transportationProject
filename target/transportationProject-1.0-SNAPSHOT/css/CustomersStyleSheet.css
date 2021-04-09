@@ -1,0 +1,34 @@
+table, th, td {
+    border: 1px solid #e02c2c;
+}
+
+table {
+    width: 100%;
+}
+body{
+    background-color: #faf7f7;
+    text-align: center;
+}
+.container{
+    background: #ffffff;
+    width:300px;
+    border-radius:6px;
+    padding:50px 0px 70px 0px;
+    border: #e5243b 4px solid;
+    position: center;
+    margin-left: 45%;
+}
+a:link, a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid #d2626c ;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: #d2626c;
+    color: white;
+}

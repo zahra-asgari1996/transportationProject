@@ -20,7 +20,7 @@
 
     <servlet>
         <servlet-name>s1</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.signUpCustomerServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.CustomerSignupServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s1</servlet-name>
@@ -29,7 +29,7 @@
 
     <servlet>
         <servlet-name>s2</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.SignInCustomerServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.CustomerLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s2</servlet-name>
@@ -48,7 +48,7 @@
 
     <servlet>
         <servlet-name>s4</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.LogOutServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.CustomerLogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s4</servlet-name>
@@ -141,7 +141,7 @@
 
     <servlet>
         <servlet-name>s12</servlet-name>
-        <servlet-class>com.example.transportationProject.servlet.LogoutEmployeeServlet</servlet-class>
+        <servlet-class>com.example.transportationProject.servlet.EmployeeLogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s12</servlet-name>
@@ -191,6 +191,15 @@
     <servlet-mapping>
         <servlet-name>s16</servlet-name>
         <url-pattern>/ManagerLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>s17</servlet-name>
+        <servlet-class>com.example.transportationProject.servlet.ManagerLogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s17</servlet-name>
+        <url-pattern>/managerLogout</url-pattern>
     </servlet-mapping>
 
 

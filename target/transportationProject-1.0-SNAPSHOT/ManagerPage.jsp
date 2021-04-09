@@ -15,12 +15,13 @@
 <html>
 <head>
     <title>Manager Page</title>
+    <link rel="stylesheet" href="css/ManagerPageStyleSheet.css">
 </head>
 <body>
 <div class="topnav">
     <a href="employees">Employees</a>
     <a href="customers">Customers</a>
-    <a href="logoutEmployee">Log out</a>
+    <a href="managerLogout">Log out</a>
 </div>
 </body>
 </html>

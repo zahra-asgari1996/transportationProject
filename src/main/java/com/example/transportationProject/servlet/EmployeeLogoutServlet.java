@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LogoutEmployeeServlet")
-public class LogoutEmployeeServlet extends HttpServlet {
+@WebServlet(name = "EmployeeLogoutServlet")
+public class EmployeeLogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

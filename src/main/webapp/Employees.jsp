@@ -7,13 +7,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    HttpSession session1= request.getSession(false);
+    if (session1==null ||session1.getAttribute("userName")==null){
+        request.getRequestDispatcher("ManagerLogin.html").forward(request,response);
+    }
+%>
 <html>
 <head>
-    <title>Employees Information</title>
+    <title>Employees</title>
+    <link rel="stylesheet" href="css/EmployeesStyleSheet.css">
 </head>
 <body>
 <table>
-    <h2> Employees</h2>
+    <h2>Employees Information</h2>
     <thead>
     <tr>
         <th>Id</th>
@@ -45,7 +53,8 @@
 </table><br><br>
 
 <div class="container">
-<a href="EmployeeSignUp.html" >Create account for employee</a>
+    <a href="EmployeeSignUp.html">Create account for employee</a><br><br>
+    <a href="managerLogout">Log out</a>
 </div>
 </body>
 </html>

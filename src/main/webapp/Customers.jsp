@@ -7,9 +7,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1 == null || session1.getAttribute("userName") == null) {
+        request.getRequestDispatcher("ManagerLogin.html").forward(request, response);
+    }
+%>
 <html>
 <head>
     <title>Customers</title>
+    <link rel="stylesheet" href="css/CustomersStyleSheet.css">
 </head>
 <body>
 
@@ -41,8 +49,11 @@
         </tr>
     </c:forEach>
     </tbody>
-</table><br><br>
+</table>
+<br><br>
 
-
+<div class="container">
+    <a href="managerLogout">Log out</a>
+</div>
 </body>
 </html>

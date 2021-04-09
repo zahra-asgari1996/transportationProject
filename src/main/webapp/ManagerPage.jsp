@@ -15,6 +15,7 @@
 <html>
 <head>
     <title>Manager Page</title>
+    <link rel="stylesheet" href="css/ManagerPageStyleSheet.css">
 </head>
 <body>
 <div class="topnav">
