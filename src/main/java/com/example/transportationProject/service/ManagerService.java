@@ -11,9 +11,8 @@ public class ManagerService {
 
     public Manager returnManager(String userName) {
         ManagerDao managerDao = new ManagerDao();
-        List<Manager> manager = managerDao.findByUserName(userName);
-        if (manager != null) {
-            return manager.get(0);
+        if (!managerDao.findByUserName(userName).isEmpty()) {
+            managerDao.findByUserName(userName).get(0);
         }
         return null;
     }
